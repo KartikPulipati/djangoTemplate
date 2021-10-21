@@ -11,24 +11,24 @@
 ```
 git clone https://github.com/<Username>/<Name of Repo>.git>
 ```
-5. Create a venv and activate it
+6. Create a venv and activate it
 ```
 pip install virtualenv
 virtualenv venv
 source venv/bin/activate
 ```
-6. Install all project dependencies
+7. Install all project dependencies
 ```
 pip install -r requirements.txt
 ```
-7. Create the database
+8. Be sure to add your own Secret Key and Email credentials in Settings.py
+9. Create the database
 ```
 python manage.py migrate
 ```
-8. Create a superuser
+10. Create a superuser
 ```
 python manage.py createsuperuser
 ```
-9. Be sure to add your own Secret Key and Email credentials in Settings.py
 
  
