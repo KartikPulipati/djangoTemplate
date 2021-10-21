@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ```
 python manage.py migrate
 ```
-10. Create a superuser
+10. Create a superuser and fill out the prompts, the password will be blank(it is for security)
 ```
 python manage.py createsuperuser
 ```
