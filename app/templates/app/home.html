@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
+{% extends 'app/base.html' %}
 
-</body>
-</html>
+{% block title %} Home {% endblock %}
+
+{%  block content %}
+    <a href="{% url 'signup' %}">Go to Signup!</a>
+
+    {{ user.username }}
+    {{ user.profile.birthday }}
+    {%  if user.profile.is_email_verified %}
+
+    U r email verified
+
+    {%  endif %}
+
+{% endblock %}

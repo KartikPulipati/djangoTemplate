@@ -1,12 +1,13 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import profile
 
 class SignupForm(UserCreationForm):
     email = forms.EmailField(max_length=200, help_text='Required')
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('email', 'password1', 'password2', 'first_name', 'last_name')
 
     def clean_email(self):
         # Get the email
@@ -21,3 +22,8 @@ class SignupForm(UserCreationForm):
 
         # A user was found with this as a username, raise an error.
         raise forms.ValidationError('This email address is already in use.')
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = profile
+        fields =['birthday']
