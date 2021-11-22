@@ -3,6 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import profile
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class SignupForm(UserCreationForm):
     email = forms.EmailField(max_length=200, help_text='Required')
     class Meta:
@@ -21,9 +24,11 @@ class SignupForm(UserCreationForm):
             return email
 
         # A user was found with this as a username, raise an error.
-        raise forms.ValidationError('This email address is already in use.')
+        raise forms.ValidationError('This email is already in use.')
 
 class ProfileForm(forms.ModelForm):
+
     class Meta:
+        widgets = {'birthday': DateInput(attrs={'class': ''})}
         model = profile
         fields =['birthday']
