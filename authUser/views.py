@@ -28,7 +28,7 @@ def signUp(request):
             return redirect('emailVer')
     else:
         form = SignupForm()
-        pform = ProfileForm
+        pform = ProfileForm()
     return render(request, 'authUser/signup.html', {'form': form, 'pform': pform})
 
 def emailVer(request):
